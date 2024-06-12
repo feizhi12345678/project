@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import './css/style.css'
 
 import { Inter } from 'next/font/google'
@@ -18,19 +19,19 @@ const uncutsans = localFont({
     {
       path: '../public/fonts/Uncut-Sans-Semibold.woff2',
       weight: '600',
-    }, 
+    },
     {
       path: '../public/fonts/Uncut-Sans-Bold.woff2',
       weight: '700',
-    }, 
+    },
     {
       path: '../public/fonts/Uncut-Sans-BoldOblique.woff2',
       weight: '700',
       style: 'italic'
-    },          
+    },
   ],
   variable: '--font-uncut-sans',
-  display: 'swap',  
+  display: 'swap',
 })
 
 export const metadata = {
@@ -44,12 +45,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${uncutsans.variable} font-inter antialiased bg-gray-900 text-gray-100 tracking-tight`}>
-        <div className="flex flex-col min-h-screen overflow-hidden">
-          {children}
-        </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.variable} ${uncutsans.variable} font-inter antialiased bg-gray-900 text-gray-100 tracking-tight`}>
+          <div className="flex flex-col min-h-screen overflow-hidden">
+            {children}
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
