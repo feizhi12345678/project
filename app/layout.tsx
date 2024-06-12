@@ -3,6 +3,7 @@ import './css/style.css'
 
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
+import TanstackProvider from '@/providers/TanstackProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,7 +50,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${inter.variable} ${uncutsans.variable} font-inter antialiased bg-gray-900 text-gray-100 tracking-tight`}>
           <div className="flex flex-col min-h-screen overflow-hidden">
-            {children}
+            <TanstackProvider>
+              <div>{children}</div>
+            </TanstackProvider>
           </div>
         </body>
       </html>
