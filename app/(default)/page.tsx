@@ -11,11 +11,13 @@ import Pricing from '@/components/pricing'
 import Testimonials from '@/components/testimonials'
 import Resources from '@/components/resources'
 import Cta from '@/components/cta'
+import PlatFormCard from '@/components/platform-card'
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <PlatFormCard />
       <PressLogos />
       <Features />
       <Features02 />
